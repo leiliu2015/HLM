@@ -1,6 +1,6 @@
 # HLM
-Heterogeneous Loop Model, shortened as HLM, is a physically sound method to generate three-dimensional (3D) chromosome structures from Hi-C data. It is effectively a multiblock copolymer model in which monomer-monomer interactions (loops) are harmonically restrained with varying interaction strength (*k_ij*). Details about this method can be found in our [paper](https://www.cell.com/biophysj/fulltext/S0006-3495(19)30540-5) (DOI: 10.1016/j.bpj.2019.06.032). The whole modeling includes two steps.
-1. Built a interaction strength matrix *{k_ij}* based on a contact frequency matrix *{p_ij}*.
+Heterogeneous Loop Model (HLM) is a computational approach with which to generate three-dimensional (3D) chromosome structures from Hi-C data. It is effectively a multiblock copolymer model in which monomer-monomer interactions (loops) are harmonically restrained with varying interaction strength (*k_ij*). Details about this method can be found in our [paper](https://www.cell.com/biophysj/fulltext/S0006-3495(19)30540-5) (DOI: 10.1016/j.bpj.2019.06.032). The whole modeling includes two steps.
+1. Build an interaction strength matrix *{k_ij}* based on a contact frequency matrix *{p_ij}*.
 2. Run Molecular Dynamics (MD) simulations with the parameters *{k_ij}* to generate an ensemble of 3D structures. 
 
 ### System Requirements
@@ -23,7 +23,7 @@ The code was tested on ubuntu 14.04/16.04 LTS. We recommand [Anaconda](https://w
 - [clearAll.sh](clearAll.sh) (A Bash script to remove all the outputs)
 
 ### User Guide
-We provides two examples to illustrate how HLM works. The first one in the [toyModel](toyModel/) folder uses a chain with two nested loops to demonstrate how to infer *{k_ij}* from *{p_ij}* (see Fig. S4 in the [paper](https://www.cell.com/biophysj/fulltext/S0006-3495(19)30540-5) for details). To run this demo, type the following lines at the root of the repository in your terminal.
+We provide two examples to illustrate how HLM works. The first one in the [toyModel](toyModel/) folder uses a chain with two nested loops to demonstrate how to infer *{k_ij}* from *{p_ij}* (see Fig. S4 in the [paper](https://www.cell.com/biophysj/fulltext/S0006-3495(19)30540-5) for details). To run this demo, type the following lines at the root of the repository in your terminal.
 ```
 $ cd ./toyModel
 $ python hlm.py L2-gnm.t0-0.rc1.0.cm
