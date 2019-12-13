@@ -2,6 +2,8 @@
 Heterogeneous Loop Model (HLM) is a computational approach with which to generate three-dimensional (3D) chromosome structures from Hi-C data. It is effectively a multiblock copolymer model in which monomer-monomer interactions (loops) are harmonically restrained with varying interaction strength (*k_ij*). Details about this method can be found in our [paper](https://www.cell.com/biophysj/fulltext/S0006-3495(19)30540-5) (DOI: 10.1016/j.bpj.2019.06.032). The whole modeling includes two steps.
 1. Build an interaction strength matrix *{k_ij}* based on a contact frequency matrix *{p_ij}*.
 2. Run Molecular Dynamics (MD) simulations with the parameters *{k_ij}* to generate an ensemble of 3D structures. 
+>***Updates:*** 
+>We have applied HLM to different epigenetic domains in *Drosophila*, which highlights their distinct structural features. See more details at [HLM-Epidom](https://github.com/leiliu2015/HLM-Epidom).
 
 ### System Requirements
 The code was tested on ubuntu 14.04/16.04 LTS. We recommand [Anaconda](https://www.anaconda.com/distribution/) to manage the Python environment (Python 2.7) and other required packages (NumPy, SciPy, Numba, and scikit-learn). We used [Gnuplot](gnuplot.sourceforge.net) to visualize the results, and [ESPResSo 3.3.1 package](http://espressomd.org/wordpress/) to perform MD simulations (*optional*). Please refer to their websites for the instructions of installation.
@@ -42,4 +44,5 @@ $ cp ../chr5_50kb.090-100Mb.oeL400W2.km ./
 $ Espresso hlm_espresso.tcl
 ```
 It takes a few hours to finish the simulation with a single CPU, which generates $10^{4}$ structures of the chromatin chain. Next, one can compute the contact frequency matrix *{p_ij}* based on these structures. To save your time, we have provided the [results](GM12878-chr5-90-100Mb-50kb/MD/chr5_50kb.090-100Mb.HLM-MD.cm) in the MD folder. All the output files will be deleted by typing `$ bash ./clearAll.sh` at the root of the repository. If you are interested in HLM, or have further questions about it, please send an email to Lei Liu (leiliu2015@163.com).
+
 
